@@ -1,0 +1,29 @@
+## DOCUMENTS CONFIDENTIALS
+
+### Command to launch a module
+
+```
+protoc --go_out=. --go-grpc_out=. calculus.proto
+```
+#### proto file
+```proto
+syntax = "proto3";
+package calculus;
+
+option go_package = "github.com/pocrom/calculus";
+
+service Calculate{
+    rpc Add(Data) returns (Result){}
+    rpc Sub(Data) returns (Result){}
+}
+
+message Data {
+
+    int32 a = 1;
+    int32 b = 2;
+}
+
+message Result{
+    int32 result = 1;
+}
+```
